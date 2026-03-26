@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load Balancer Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚖️ Load Balancer Dashboard</h1>
+            <p class="subtitle">Manage your backend servers and test load balancing</p>
+        </header>
+
+        <div class="dashboard">
+            <!-- Server Management Section -->
+            <section class="card">
+                <h2>🖥️ Server Management</h2>
+                <div id="servers-container" class="servers-grid">
+                    <!-- Server cards will be dynamically added here -->
+                </div>
+            </section>
+
+            <!-- Load Balancer Status Section -->
+            <section class="card">
+                <h2>📊 Load Balancer Status</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Running Servers</span>
+                        <span class="stat-value" id="running-count">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Healthy Servers</span>
+                        <span class="stat-value" id="healthy-count">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Total Requests</span>
+                        <span class="stat-value" id="request-count">0</span>
+                    </div>
+                </div>
+                <div class="health-status" id="health-status">
+                    <!-- Health status will be shown here -->
+                </div>
+            </section>
+
+            <!-- Request Testing Section -->
+            <section class="card">
+                <h2>🚀 Test Load Balancer</h2>
+                <div class="request-panel">
+                    <div class="button-group">
+                        <button class="btn btn-primary" onclick="sendRequest()">
+                            Send Request
+                        </button>
+                        <button class="btn btn-secondary" onclick="sendMultipleRequests()">
+                            Send 10 Requests
+                        </button>
+                        <button class="btn btn-warning" onclick="clearResponses()">
+                            Clear History
+                        </button>
+                    </div>
+                    
+                    <div class="response-section">
+                        <h3>📨 Response History</h3>
+                        <div id="response-container" class="response-container">
+                            <div class="empty-state">
+                                <p>No requests sent yet. Click "Send Request" to start!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
